@@ -1,0 +1,51 @@
+<% include partials/header %>
+
+<div class="ui main text container segment">
+    <form  action="/books" method="POST" class="ui form">
+        <h4 class="ui dividing header">New Book</h4>
+        <div class="field">
+            <label for="name">Name</label>
+            <input type="text" name="book[name]" placeholder="New book...">
+        </div>
+
+        <div class="field">
+                <label for="author">Author</label>
+                <input type="text" name="book[author]" placeholder="Author...">
+        </div>
+        <div class="field">
+                <label for="imageUrl">Image URL</label>
+                <input type="text" name="book[imageUrl]" placeholder="Image URL...">
+        </div>
+
+
+        <div class="field">
+                <label for="publishedIn">Published In</label>
+                <input type="text" name="book[publishedIn]" placeholder="Year of publication...">
+        </div>
+
+        <div class="field">
+            <label for="description">Short description</label>
+            <textarea name="book[description]" id="" cols="30" rows="10"></textarea>
+        </div>
+        
+        <input class="ui black basic button" type='submit'></input>
+    
+    </form>
+</div>
+
+
+ <!-- <form action="/books" method="POST">
+    <label for="name">Name</label>
+    <input type="text" name="book[name]" placeholder="name">
+
+    <label for="author">Author</label>
+    <input type="text" name="book[author]">
+
+    <label for="publishedIn">Published In</label>
+    <input type="text" name="publishedIn" id="">
+
+    <label for="description" >description</label>
+    <textarea name="description" id="" cols="30" rows="10"></textarea>
+    <button type="submit">submit</button>
+</form> -->
+<% include partials/footer %>

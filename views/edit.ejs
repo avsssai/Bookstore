@@ -1,0 +1,40 @@
+<% include partials/header %>
+
+<div class="ui text main container segment">
+    <div class="ui  dividing heading">
+        <%= book.name %>
+    </div>
+    <form class="ui form" action="/books/<%= book._id %>?_method=PUT" method="POST">
+        <div class="field">
+            <label for="book[name]">Book Name</label>
+            <input type="text" name="book[name]" id="" value="<%= book.name %>" required >
+        </div>
+
+        <div class="field">
+                <label for="author">Author</label>
+                <input type="text" name="book[author]" id="" value="<%= book.author  %>" required>
+            </div>
+        <div class="field">
+                <label for="imageUrl">Image URL</label>
+                <input type="text" name="book[imageUrl]" id="" value="<%= book.imageUrl %>"  >
+        </div>
+
+        <div class="field">
+                <label for="publishedIn"> Published In</label>
+                <input type="text" name="book[publishedIn]" id="" value="<%= book.publishedIn %>" required >
+        </div>
+
+        <div class="field">
+                <label for="description">  Description</label>
+                <textarea name="book[description]" id="" cols="30" rows="10"><%= book.description %> required</textarea>
+        </div>
+
+        <button type="submit" class="ui black basic button">Update</button>
+
+            
+    
+    </form>
+</div>
+
+
+<% include partials/footer %>

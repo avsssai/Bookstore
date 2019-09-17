@@ -1,0 +1,27 @@
+<% include partials/header %>
+
+
+<div class="ui main text container segment">
+    <div class="ui text huge header centered">
+        <%= book.name %>
+    </div>
+    <img src="<%= book.imageUrl %>" alt="book_img" class="ui image centered rounded">
+    <div class="created">
+        Published in <b><%= book.publishedIn %></b>
+        <div class="author">
+            Written by : <b><%= book.author %></b>
+        </div>
+    </div>
+
+    <div class="ui text">
+        <%= book.description %>
+    </div>
+    <a href="/books/<%= book._id %>/edit" class="ui black basic button">Edit</a>
+    <form action="/books/<%= book._id %>?_method=DELETE" method="POST">
+        <button class="ui black basic button" type="submit">Delete</a>
+
+    </form>
+
+</div>
+
+<% include partials/footer %>
