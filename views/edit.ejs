@@ -1,7 +1,7 @@
 <% include partials/header %>
 
 <div class="ui text main container segment">
-    <div class="ui  dividing heading">
+    <div class="ui dividing heading huge header">
         <%= book.name %>
     </div>
     <form class="ui form" action="/books/<%= book._id %>?_method=PUT" method="POST">
@@ -26,7 +26,7 @@
 
         <div class="field">
                 <label for="description">  Description</label>
-                <textarea name="book[description]" id="" cols="30" rows="10"><%= book.description %> required</textarea>
+                <textarea name="book[description]" id="" cols="30" rows="10"><%- book.description %> required</textarea>
         </div>
 
         <button type="submit" class="ui black basic button">Update</button>

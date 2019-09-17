@@ -13,7 +13,7 @@
             <div class="content">
                     <a class="header" href="/books/<%= book._id %>"><%= book.name %></a>
                     <div class="meta"><%= book.publishedIn %></div>
-                    <div class="description"><%= book.description.substring(0,100) %>...</div>
+                    <div class="description"><%- book.description.substring(0,100) %>...</div>
                     <div class="extra">
                         <a class="ui black basic button" href="/books/<%= book._id %>">Know more<i class="angle right icon"></i></a>
                     </div>

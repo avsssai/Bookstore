@@ -14,13 +14,14 @@
     </div>
 
     <div class="ui text">
-        <%= book.description %>
+        <%- book.description %>
     </div>
-    <a href="/books/<%= book._id %>/edit" class="ui black basic button">Edit</a>
-    <form action="/books/<%= book._id %>?_method=DELETE" method="POST">
+            <a href="/books/<%= book._id %>/edit" class="ui black basic button">Edit</a>
+    <form action="/books/<%= book._id %>?_method=DELETE" method="POST" style="display: inline">
         <button class="ui black basic button" type="submit">Delete</a>
 
     </form>
+
 
 </div>
 

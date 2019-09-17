@@ -1,12 +1,14 @@
 var express = require('express'),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
-    methodOverride = require('method-override');
+    methodOverride = require('method-override'),
+    sanitizer = require('express-sanitizer');
 
 
     var app = express();
     var PORT = 3000;
     app.use(bodyParser.urlencoded({extended:true}));
+    app.use(sanitizer());
     //method override lets us use the different REST parameters other than GET and POST 
     //like PUT and DELETE. we have to declare the term we use for overriding.s
     app.use(methodOverride('_method'));
@@ -58,6 +60,8 @@ var express = require('express'),
     })
     //CREATE A NEW BOOK.
     app.post('/books',(req,res)=>{
+        req.body.book.description = req.sanitize(req.body.book.description);
+
         var newBook = req.body.book;
         console.log(req.body);
         Book.create(newBook,(err,bookCreated)=>{
@@ -111,7 +115,7 @@ var express = require('express'),
     //UPDATE route
     app.put('/books/:id',(req,res)=>{
         var id = req.params.id;
-        var updateBook = req.body.book;
+        req.body.book.description = req.sanitize(req.body.book.description);
         console.log(updateBook);
         Book.findByIdAndUpdate(id,updateBook,(err,updatedInfo)=>{
             if(err){
